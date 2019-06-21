@@ -10,15 +10,18 @@ import UIKit
 
 class ViewController: UIViewController {
    
-    let emojis = ["😄": "happy", "😓": "sad"]
+
+    
    
     @IBAction func showMessage(sender: UIButton) {
         
         let selectedEmotion = sender.titleLabel?.text
        
-        
-        //in as much detail as possible pseudo-code the things that need to happen when a user clicks an emoji button
-       let alertController = UIAlertController()
+        let emojis = ["😄": "happy", "😓": "sad"]
+        var customMessages =  ["happy" : ["You are doing great sweetie!💘", "Keep it up!👍", "You are a bundle of sunshine🌞"], "sad" : ["Tomorrow will be better🌻", "Just keep swimming🐠", "Smile more, it helps😆"]]
+     
+        let emojiMessage = customMessages[emojis[selectedEmotion!]!]?[0]
+        let alertController = UIAlertController(title: "Remember", message: emojiMessage, preferredStyle: UIAlertController.Style.alert)
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
     
     present(alertController, animated: true, completion: nil)
@@ -27,7 +30,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
 
 }
 
