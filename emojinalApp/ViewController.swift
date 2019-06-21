@@ -10,9 +10,13 @@ import UIKit
 
 class ViewController: UIViewController {
    
-   
+    let emojis = ["😄": "happy", "😓": "sad"]
    
     @IBAction func showMessage(sender: UIButton) {
+        
+        let selectedEmotion = sender.titleLabel?.text
+       
+        
         //in as much detail as possible pseudo-code the things that need to happen when a user clicks an emoji button
        let alertController = UIAlertController()
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil))
